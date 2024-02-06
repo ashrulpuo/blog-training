@@ -148,6 +148,43 @@
       <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
     </div>
 
+    <div class="row justify-content-center">
+        <div class="col-auto col-md-10">
+            <h2><center>Senarai blog</center></h2>
+            <button type="button" class="btn btn-primary float-end">Tambah Blog</button>
+            <table class="table table-striped table-responsive">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
     <footer class="container py-5">
         <div class="row">
             <div class="col-12 col-md">
