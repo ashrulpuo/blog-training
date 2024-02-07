@@ -29,6 +29,10 @@
                         <input type="text" class="form-control" id="kategori" name="kategori">
                     </div>
                     <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Content</label>
+                          <textarea id="summernote" name="editordata"></textarea>
+                    </div>
+                    <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Hantar</button>
                     </div>
                 </form>

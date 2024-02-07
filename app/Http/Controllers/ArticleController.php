@@ -124,6 +124,7 @@ class ArticleController extends Controller
 
     public function landing()
     {
-        return view('welcome');
+        $articles = Article::all();
+        return view('welcome', ['articles' => $articles]);
     }
 }

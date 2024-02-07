@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ArticleController::class, 'landing'])->name('landing');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [ArticleController::class, 'landing'])->name('landing');
 
 Route::get('/index', [ArticleController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('index');
