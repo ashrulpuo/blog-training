@@ -112,7 +112,7 @@
 </style>
 
 <body>
-
+    
     <nav class="site-header sticky-top py-1">
         <div class="container d-flex flex-column flex-md-row justify-content-between">
             <a class="py-2" href="#">
@@ -128,13 +128,20 @@
                     <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
                 </svg>
             </a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
-            <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+            @if(empty($nav))
+                <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="py-2 d-none d-md-inline-block" onclick="event.preventDefault();
+                        this.closest('form').submit();" href="route('logout')">Log keluar</a>
+                </form>
+                <p class="py-2 d-none d-md-inline-block text-white">
+                    SELAMAT DATANG {{ strtoupper(Auth::user()->name) }}
+                </p>
+            @else
+                <a class="py-2 d-none d-md-inline-block" href="{{ route('login') }}">Log Masuk</a>
+            @endif
+
         </div>
     </nav>
 
@@ -150,6 +157,7 @@
 
     @yield('content')
 
+    @if(empty($nav))
     <footer class="container py-5">
         <div class="row">
             <div class="col-12 col-md">
@@ -206,6 +214,11 @@
             </div>
         </div>
     </footer>
+    @else
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    </footer>
+    @endif
 
 
     <!-- Bootstrap core JavaScript
