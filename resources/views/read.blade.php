@@ -31,6 +31,7 @@
 
                 </div><!-- /.blog-post -->
 
+                {{-- navbar --}}
                 <nav class="blog-pagination">
                     <a class="btn btn-outline-primary" href="{{ route('landing') }}">Kembali</a>
                     @if(Auth::check())
