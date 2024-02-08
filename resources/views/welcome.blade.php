@@ -28,9 +28,8 @@
                         <a class="text-dark" href="#">{{ $article->tajuk }}</a>
                     </h3>
                     <div class="mb-1 text-muted">{{ $article->tarikh_publish }}</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                        additional content.</p>
-                    <a href="#">Continue reading</a>
+                    <p class="card-text mb-auto">{{ Str::limit(strip_tags($article->content), 100, '...') }}</p>
+                    <a href="{{ route('read', $article->id) }}">Continue reading</a>
                 </div>
             </div>
         </div>

@@ -46,6 +46,8 @@ class ArticleController extends Controller
         $article->tarikh_publish = $request->input('tarikh_publish');
         $article->penulis = $request->input('penulis');
         $article->kategori = $request->input('kategori');
+        $article->content = $request->input('editordata');
+
 
         $article->save();
 
@@ -126,5 +128,10 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
         return view('welcome', ['articles' => $articles]);
+    }
+
+    public function read($id)
+    {
+        return view('read');
     }
 }

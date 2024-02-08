@@ -39,6 +39,9 @@ Route::delete('/delete-article/{id}', [ArticleController::class, 'destroy'])
 Route::post('/form-submit', [ArticleController::class, 'store'])
     ->middleware(['auth', 'verified'])->name('form-submit');
 
+Route::get('/read-article/{id}', [ArticleController::class, 'read'])->name('read');
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
