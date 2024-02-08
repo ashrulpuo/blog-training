@@ -20,4 +20,9 @@ class Article extends Model
         'penulis',
         'kategori'
     ];
+
+    public function socialMedia()
+    {
+        return $this->hasMany(SocialMedia::class, 'article_id', 'id');
+    }
 }

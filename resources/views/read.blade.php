@@ -44,11 +44,11 @@
                 </div>
 
                 <div class="p-3">
-                    <h4 class="font-italic">Elsewhere</h4>
+                    <h4 class="font-italic">Social Media</h4>
                     <ol class="list-unstyled">
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
+                        @foreach($article->socialMedia as $key => $value)
+                            <li><a target="_blank" href="{{ $value->url }}">{{ $value->jenis }}</a></li>
+                        @endforeach
                     </ol>
                 </div>
             </aside><!-- /.blog-sidebar -->

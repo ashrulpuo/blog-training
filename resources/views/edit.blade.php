@@ -38,6 +38,35 @@
                           <textarea id="summernote" name="editordata">{{ $article->content }}</textarea>
                     </div>
                     <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Social Media</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="jenis[]" value="Facebook" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="url[]" value="{{ $article->socialMedia[0]->url }}" required>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="jenis[]" value="Instagram" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="url[]" value="{{ $article->socialMedia[1]->url }}" required>
+                            </div>
+                        </div>
+                        </br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="jenis[]" value="Twitter" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="url[]" value="{{ $article->socialMedia[2]->url }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Kemaskini</button>
                     </div>
                 </form>

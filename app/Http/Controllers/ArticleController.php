@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -51,9 +52,28 @@ class ArticleController extends Controller
 
         $article->save();
 
+        /**
+         * reassign / insert social media
+         */
+        $this->reassignSocial($request->all(), $article);
+
         return redirect()->route('index')->with([
             'message' => 'Rekod berjaya disimpan'
         ]);
+    }
+
+    public function reassignSocial($request, $article): void
+    {
+        $url = $request['url'];
+        foreach ($request['jenis'] as $key => $value) {
+            $social = new SocialMedia();
+
+            $social->article_id = $article->id;
+            $social->jenis = $value;
+            $social->url = $url[$key];
+
+            $social->save();
+        }
     }
 
     /**
@@ -78,7 +98,7 @@ class ArticleController extends Controller
         /**
          * select * from article where id = 1
          */
-        $article = Article::find($id);
+        $article = Article::with(['socialMedia'])->where('id', $id)->first();
         return view('edit', ['article' => $article]);
     }
 
@@ -102,9 +122,32 @@ class ArticleController extends Controller
         
         $article->update();
 
+        /**
+         * update social media record
+         */
+        $this->reassignSocialUpdate($request->all(), $article);
+
         return redirect()->route('index')->with([
             'message' => 'Rekod berjaya dikemaskini'
         ]);
+    }
+
+    public function reassignSocialUpdate($request, $article): void
+    {
+        $url = $request['url'];
+        foreach ($request['jenis'] as $key => $value) {
+            $social = SocialMedia::where('article_id', $article->id)
+                        ->get();
+            
+            if(empty($social)) continue;
+
+            foreach ($social as $key => $media) {
+                $media->jenis = $value;
+                $media->url = $url[$key];
+
+                $media->update();    
+            }
+        }
     }
 
     /**
@@ -135,9 +178,14 @@ class ArticleController extends Controller
     public function read($id)
     {
         /**
-         * sql : select * from article where id = 6
+         * sql : select * from article inner join social_media
+         *         on article.id = social_media.article_id
+         *         where article.id = 6
          */
-        $article = Article::find($id);
+        $article = Article::with([
+            'socialMedia'
+        ])->where('id', $id)->first();
+        
         return view('read', ['article' => $article]);
     }
 }
