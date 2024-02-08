@@ -13,7 +13,7 @@
             <h2>
                 <center>Senarai blog</center>
             </h2>
-            <button type="button" class="btn btn-primary float-end">Tambah Blog</button>
+            <a href="{{ route('create') }}" type="button" class="btn btn-primary float-end">Tambah Blog</a>
             <table class="table table-striped table-responsive">
                 <thead>
                     <tr>

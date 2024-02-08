@@ -47,7 +47,7 @@ class ArticleController extends Controller
         $article->penulis = $request->input('penulis');
         $article->kategori = $request->input('kategori');
         $article->content = $request->input('editordata');
-
+        $article->about = $request->input('about');
 
         $article->save();
 
@@ -97,7 +97,9 @@ class ArticleController extends Controller
         $article->tarikh_publish = $request->input('tarikh_publish');
         $article->penulis = $request->input('penulis');
         $article->kategori = $request->input('kategori');
-
+        $article->content = $request->input('editordata');
+        $article->about = $request->input('about');
+        
         $article->update();
 
         return redirect()->route('index')->with([
@@ -132,6 +134,10 @@ class ArticleController extends Controller
 
     public function read($id)
     {
-        return view('read');
+        /**
+         * sql : select * from article where id = 6
+         */
+        $article = Article::find($id);
+        return view('read', ['article' => $article]);
     }
 }

@@ -30,8 +30,12 @@
                         <input type="text" class="form-control" id="kategori" name="kategori" value="{{ $article->kategori }}">
                     </div>
                     <div class="col-12">
+                        <label for="inputAddress2" class="form-label">About</label>
+                        <textarea type="text" class="form-control" id="about" name="about">{{ $article->about }}</textarea>
+                    </div>
+                    <div class="col-12">
                         <label class="form-label">Content</label>
-                          <textarea id="summernote" name="editordata">{{ $article->kategori }}</textarea>
+                          <textarea id="summernote" name="editordata">{{ $article->content }}</textarea>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Kemaskini</button>
