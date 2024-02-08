@@ -33,6 +33,9 @@
 
                 <nav class="blog-pagination">
                     <a class="btn btn-outline-primary" href="{{ route('landing') }}">Kembali</a>
+                    @if(Auth::check())
+                    <a class="btn btn-outline-success" href="{{ route('edit', $article->id) }}" target="_blank">Kemaskini</a>
+                    @endif
                 </nav>
                 </br>
             </div><!-- /.blog-main -->

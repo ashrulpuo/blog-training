@@ -142,7 +142,7 @@ class ArticleController extends Controller
             if(empty($social)) continue;
 
             foreach ($social as $key => $media) {
-                $media->jenis = $value;
+                // $media->jenis = $value;
                 $media->url = $url[$key];
 
                 $media->update();    

@@ -25,7 +25,7 @@
                 <div class="card-body d-flex flex-column align-items-start">
                     <strong class="d-inline-block mb-2 text-primary">{{ $article->kategori }}</strong>
                     <h3 class="mb-0">
-                        <a class="text-dark" href="#">{{ $article->tajuk }}</a>
+                        <a class="text-dark" href="{{ route('read', $article->id) }}">{{ $article->tajuk }}</a>
                     </h3>
                     <div class="mb-1 text-muted">{{ $article->tarikh_publish }}</div>
                     <p class="card-text mb-auto">{{ Str::limit(strip_tags($article->content), 100, '...') }}</p>
